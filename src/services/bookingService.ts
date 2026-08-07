@@ -1,5 +1,8 @@
 import type { HourlySlot, BookingRequest } from '../types';
 
+export const OWNER_PHONE_DISPLAY = '+91 9916879803';
+export const OWNER_PHONE_NUMBER = '919916879803';
+
 const HOURLY_TIME_SLOTS = [
   { id: "09:00", label: "09:00 AM - 10:00 AM", hour24: 9 },
   { id: "10:00", label: "10:00 AM - 11:00 AM", hour24: 10 },
@@ -123,9 +126,29 @@ export const generateBookingId = (): string => {
   return `BGC-${year}-${rand}`;
 };
 
+export const generateOwnerWhatsAppMessage = (b: BookingRequest): string => {
+  return `🚨 *NEW BOOKING CONFIRMED - BASAVRAJ GAMING CENTRE* 🚨
+
+🆔 *Booking ID:* ${b.id}
+👤 *Customer Name:* ${b.name}
+📞 *Customer Phone:* ${b.phone}
+📅 *Date:* ${b.date}
+⏰ *Time Slot:* ${b.slotLabel}
+👥 *Squad Size:* ${b.playerCount} Player(s)
+💳 *Payment Mode:* ${b.paymentMethod.toUpperCase()}
+💰 *Total Amount:* ₹${b.price}
+
+📍 *Basavraj Gaming Centre • Hubli, Karnataka*`;
+};
+
+export const getOwnerWhatsAppUrl = (b: BookingRequest): string => {
+  const text = generateOwnerWhatsAppMessage(b);
+  return `https://wa.me/${OWNER_PHONE_NUMBER}?text=${encodeURIComponent(text)}`;
+};
+
 export const createBooking = async (
   requestData: Omit<BookingRequest, 'id' | 'createdAt'>
-): Promise<{ success: boolean; bookingId: string; message: string }> => {
+): Promise<{ success: boolean; bookingId: string; message: string; booking?: BookingRequest }> => {
   // Simulate network delay for premium feel
   await new Promise(resolve => setTimeout(resolve, 600));
 
@@ -154,5 +177,6 @@ export const createBooking = async (
     success: true,
     bookingId,
     message: 'Booking confirmed successfully! See you at Basavraj Gaming Centre.',
+    booking: fullBooking,
   };
 };

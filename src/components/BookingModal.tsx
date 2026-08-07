@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Clock, User, Phone, Mail, Users, CreditCard, QrCode, Banknote, Sparkles, CheckCircle2, ShieldCheck, Gamepad2 } from 'lucide-react';
+import { X, Calendar, Clock, User, Phone, Mail, Users, CreditCard, QrCode, Banknote, Sparkles, CheckCircle2, ShieldCheck, Gamepad2, MessageSquare, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { createBooking } from '../services/bookingService';
+import { createBooking, getOwnerWhatsAppUrl, OWNER_PHONE_DISPLAY } from '../services/bookingService';
 import type { HourlySlot, BookingRequest } from '../types';
 import { audioService } from '../services/audioService';
 
@@ -102,7 +102,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
     setLoading(false);
 
-    if (result.success) {
+    if (result.success && result.booking) {
       audioService.playSuccessChime();
       
       // Fire confetti burst
@@ -111,25 +111,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#00f0ff', '#9d4edd', '#00f5d4', '#ffffff'],
+          colors: ['#00f0ff', '#0077b6', '#00f5d4', '#ffffff'],
         });
       } catch {
         // Confetti fallback
       }
 
-      setConfirmedBooking({
-        id: result.bookingId,
-        name,
-        phone,
-        email,
-        date,
-        slotId,
-        slotLabel: slotLabels[slotId] || '02:00 PM - 03:00 PM',
-        playerCount,
-        price,
-        paymentMethod,
-        createdAt: new Date().toISOString(),
-      });
+      setConfirmedBooking(result.booking);
+
+      // Auto trigger opening WhatsApp with booking & amount details to owner (+91 9916879803)
+      setTimeout(() => {
+        try {
+          window.open(getOwnerWhatsAppUrl(result.booking!), '_blank');
+        } catch {
+          // Window popup fallback
+        }
+      }, 500);
     } else {
       setErrorMsg(result.message);
     }
@@ -188,7 +185,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </h3>
               
               <p className="text-white/70 text-xs mb-6 max-w-sm mx-auto">
-                Your station at Basavraj Gaming Centre has been locked. Show this Booking Pass upon arrival.
+                Your station at Basavraj Gaming Centre has been locked. Notification payload dispatched to owner ({OWNER_PHONE_DISPLAY}).
               </p>
 
               {/* Glass Receipt Card */}
@@ -200,6 +197,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-white/50">Gamer Name:</span>
                   <span className="text-white font-semibold">{confirmedBooking.name}</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-white/50">Customer Phone:</span>
+                  <span className="text-white font-semibold">{confirmedBooking.phone}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-white/50">Date & Slot:</span>
@@ -214,9 +215,28 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <span className="text-cyan-300 uppercase font-bold">{confirmedBooking.paymentMethod}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm pt-2 border-t border-white/10 font-bold">
-                  <span className="text-white">Total Rate:</span>
+                  <span className="text-white">Total Amount:</span>
                   <span className="text-xl text-[#00f0ff] font-display">₹{confirmedBooking.price}</span>
                 </div>
+              </div>
+
+              {/* Owner Notification Dispatch Bar */}
+              <div className="mb-6 p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+                <div>
+                  <div className="text-xs font-mono font-bold text-emerald-400 flex items-center gap-1.5">
+                    <Send className="w-3.5 h-3.5" /> Sent to Owner ({OWNER_PHONE_DISPLAY})
+                  </div>
+                  <span className="text-[11px] text-white/60 font-mono">Total Rate: ₹{confirmedBooking.price} + Booking Pass</span>
+                </div>
+                <a
+                  href={getOwnerWhatsAppUrl(confirmedBooking)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => audioService.playClickSound()}
+                  className="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold text-emerald-400 border-emerald-500/40 hover:bg-emerald-500/20 flex items-center gap-1.5 shrink-0"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" /> WhatsApp Owner
+                </a>
               </div>
 
               <button
@@ -404,7 +424,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     </span>
                   </div>
                   <div className="text-right text-[11px] font-mono text-emerald-400 flex items-center gap-1">
-                    <ShieldCheck className="w-4 h-4" /> Instant Locking
+                    <ShieldCheck className="w-4 h-4" /> Notifies Owner +91 9916879803
                   </div>
                 </div>
 
@@ -415,7 +435,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="btn-gradient w-full py-4 text-sm font-bold uppercase tracking-wider shadow-xl flex items-center justify-center gap-2"
                 >
                   {loading ? (
-                    <span className="animate-pulse">Locking Slot...</span>
+                    <span className="animate-pulse">Locking Slot & Notifying Owner...</span>
                   ) : (
                     <>
                       <Sparkles className="w-4 h-4" /> Confirm Booking (₹{calculatePrice(playerCount)})

@@ -187,7 +187,7 @@ export const GamingArena: React.FC = () => {
               {/* Specs List Footer */}
               <div className="px-6 pb-6 pt-2 border-t border-white/5 bg-white/[0.02]">
                 <ul className="space-y-1.5">
-                  {feature.specs.map((spec, i) => (
+                  {feature.specs.map((spec: string, i: number) => (
                     <li key={i} className="text-[11px] text-white/70 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff]" />
                       <span>{spec}</span>

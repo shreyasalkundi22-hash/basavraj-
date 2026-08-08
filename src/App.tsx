@@ -4,45 +4,40 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { LiveStationStatus } from './components/LiveStationStatus';
+import { BookingCalendar } from './components/BookingCalendar';
 import { WhyBasavraj } from './components/WhyBasavraj';
 import { ChooseYourBattle } from './components/ChooseYourBattle';
 import { Pricing } from './components/Pricing';
-import { BookingSection } from './components/BookingSection';
 import { Leaderboard } from './components/Leaderboard';
 import { Gallery } from './components/Gallery';
 import { Reviews } from './components/Reviews';
 import { Contact } from './components/Contact';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { Footer } from './components/Footer';
-import { BookingModal } from './components/BookingModal';
-import type { HourlySlot } from './types';
+import { AdminModal } from './components/AdminModal';
+import { ShieldCheck } from 'lucide-react';
 
 export function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<string | undefined>(undefined);
-  const [selectedSlot, setSelectedSlot] = useState<HourlySlot | null>(null);
-  const [selectedPlayers, setSelectedPlayers] = useState<number>(1);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  const handleOpenBooking = () => {
-    setSelectedDate(undefined);
-    setSelectedSlot(null);
-    setSelectedPlayers(1);
-    setIsBookingOpen(true);
+  const scrollToBooking = () => {
+    const el = document.getElementById('booking-calendar');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  const handleSelectPricingTier = (players: number) => {
-    setSelectedPlayers(players);
-    setSelectedSlot(null);
-    setIsBookingOpen(true);
+  const handleSelectPricingTier = (_players: number) => {
+    scrollToBooking();
   };
 
   const handlePlayGame = (_gameTitle: string) => {
-    handleOpenBooking();
+    scrollToBooking();
   };
 
   const handleSelectStation = (_stationId: string) => {
-    handleOpenBooking();
+    scrollToBooking();
   };
 
   return (
@@ -55,21 +50,43 @@ export function App() {
         <CustomCursor />
 
         {/* Sticky Glass Navbar */}
-        <Navbar onOpenBooking={handleOpenBooking} />
+        <Navbar onOpenBooking={scrollToBooking} />
 
         {/* Main Content Sections */}
         <main>
-          <Hero onOpenBooking={handleOpenBooking} />
+          <Hero onOpenBooking={scrollToBooking} />
+          
           <LiveStationStatus onSelectStation={handleSelectStation} />
+
+          {/* DEDICATED CALENDAR BOOKING SYSTEM */}
+          <BookingCalendar />
+
           <WhyBasavraj />
+
           <ChooseYourBattle onPlayGame={handlePlayGame} />
+
           <Pricing onSelectTier={handleSelectPricingTier} />
-          <BookingSection />
-          <Leaderboard onOpenBooking={handleOpenBooking} />
+
+          <Leaderboard onOpenBooking={scrollToBooking} />
+
           <Gallery />
+
           <Reviews />
+
           <Contact />
         </main>
+
+        {/* Owner Admin Access Button Bar (Bottom Left) */}
+        <div className="fixed bottom-6 left-6 z-40">
+          <button
+            onClick={() => setIsAdminOpen(true)}
+            className="glass-panel px-3.5 py-2 rounded-full text-xs font-mono font-bold text-white/80 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all flex items-center gap-1.5 shadow-xl border border-white/10"
+            title="Owner Admin Booking Portal"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-[#00f0ff]" />
+            <span className="hidden sm:inline">Owner Login</span>
+          </button>
+        </div>
 
         {/* Floating WhatsApp Button */}
         <FloatingWhatsApp />
@@ -77,13 +94,10 @@ export function App() {
         {/* Glass Footer */}
         <Footer />
 
-        {/* Global Glass Booking Modal */}
-        <BookingModal
-          isOpen={isBookingOpen}
-          onClose={() => setIsBookingOpen(false)}
-          initialDate={selectedDate}
-          initialSlot={selectedSlot}
-          initialPlayers={selectedPlayers}
+        {/* Protected Owner Admin Modal */}
+        <AdminModal
+          isOpen={isAdminOpen}
+          onClose={() => setIsAdminOpen(false)}
         />
       </div>
     </>

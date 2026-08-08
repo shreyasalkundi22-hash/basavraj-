@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo: GAMING ADDA */}
         <a
           href="#hero"
           className="flex items-center gap-3 group"
@@ -50,11 +50,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-extrabold text-lg md:text-xl tracking-wider text-white group-hover:text-cyan-300 transition-colors">
-              BASAVRAJ
+            <span className="font-display font-extrabold text-lg md:text-xl tracking-wider text-white group-hover:text-cyan-300 transition-colors uppercase">
+              GAMING ADDA
             </span>
             <span className="text-[10px] font-mono tracking-widest text-[#00f0ff] uppercase -mt-1 flex items-center gap-1.5 font-bold">
-              GAMING ARENA
+              PREMIUM LOUNGE
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </span>
           </div>

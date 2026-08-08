@@ -100,7 +100,7 @@ export const Reviews: React.FC = () => {
             viewport={{ once: true }}
             className="text-white/70 text-base sm:text-lg"
           >
-            See what Hubli players have to say about their experience at Basavraj Gaming Arena.
+            See what Hubli players have to say about their experience at Gaming Adda.
           </motion.p>
         </div>
 

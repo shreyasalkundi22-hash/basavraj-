@@ -185,7 +185,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </h3>
               
               <p className="text-white/70 text-xs mb-6 max-w-sm mx-auto">
-                Your station at Basavraj Gaming Centre has been locked. Notification payload dispatched to owner ({OWNER_PHONE_DISPLAY}).
+                Your station at Gaming Adda has been locked. Notification payload dispatched to owner ({OWNER_PHONE_DISPLAY}).
               </p>
 
               {/* Glass Receipt Card */}
@@ -258,7 +258,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   Book PS5 Gaming Station
                 </h3>
                 <p className="text-white/60 text-xs">
-                  Basavraj Gaming Centre • Hubli, Karnataka
+                  Gaming Adda • Hubli, Karnataka
                 </p>
               </div>
 

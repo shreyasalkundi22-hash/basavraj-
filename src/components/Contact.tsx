@@ -4,7 +4,7 @@ import { MapPin, Phone, Clock, MessageSquare, Navigation, Sparkles, ShieldCheck 
 import { audioService } from '../services/audioService';
 
 export const Contact: React.FC = () => {
-  const whatsappMessage = encodeURIComponent("Hi Basavraj Gaming Arena, I would like to book a gaming session.");
+  const whatsappMessage = encodeURIComponent("Hi Gaming Adda, I would like to book a gaming session.");
   const whatsappUrl = `https://wa.me/919916879803?text=${whatsappMessage}`;
 
   return (
@@ -38,7 +38,7 @@ export const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="text-white/80 text-lg sm:text-xl font-light"
           >
-            Visit Basavraj Gaming Arena in Hubli.
+            Visit Gaming Adda in Hubli.
           </motion.p>
         </div>
 
@@ -58,7 +58,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white font-display">
-                    Basavraj Gaming Arena
+                    Gaming Adda
                   </h3>
                   <span className="text-xs font-mono text-emerald-400 flex items-center gap-1 font-bold">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> OPEN TODAY • 9:00 AM – 11:00 PM
@@ -78,7 +78,7 @@ export const Contact: React.FC = () => {
                     <span className="text-xs text-white/50 uppercase block mb-0.5">Address</span>
                     <span className="text-white font-semibold">Hubli, Karnataka, India</span>
                     <p className="text-white/60 text-xs mt-0.5 font-sans">
-                      Central Console & Esports Arena
+                      2 PS5 4K 120Hz OLED Stations Lounge
                     </p>
                   </div>
                 </div>
@@ -153,7 +153,7 @@ export const Contact: React.FC = () => {
           {/* Right Column: Google Maps Embed Centered on Hubli */}
           <div className="lg:col-span-7 glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative min-h-[420px]">
             <iframe
-              title="Basavraj Gaming Arena Hubli Map"
+              title="Gaming Adda Hubli Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61541.51786524317!2d75.0970364!3d15.3647083!2m3!1f0!2f5!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d72f9b8c0a59%3A0x6b8dd8f85f8c85c2!2sHubballi%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
@@ -170,7 +170,7 @@ export const Contact: React.FC = () => {
                 <div className="text-xs font-mono font-bold text-white flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#00f0ff]" /> Hubli, Karnataka
                 </div>
-                <span className="text-[10px] font-mono text-white/60">Basavraj Gaming Arena</span>
+                <span className="text-[10px] font-mono text-white/60">Gaming Adda</span>
               </div>
               
               <a

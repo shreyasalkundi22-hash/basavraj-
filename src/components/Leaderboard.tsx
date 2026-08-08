@@ -79,7 +79,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onOpenBooking }) => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            BASAVRAJ <span className="bg-gradient-to-r from-amber-300 via-white to-[#00f0ff] bg-clip-text text-transparent">LEADERBOARD</span>
+            GAMING ADDA <span className="bg-gradient-to-r from-amber-300 via-white to-[#00f0ff] bg-clip-text text-transparent">LEADERBOARD</span>
           </motion.h2>
 
           <motion.p

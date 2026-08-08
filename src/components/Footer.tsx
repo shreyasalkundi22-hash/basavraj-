@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand Col */}
+          {/* Brand Col: GAMING ADDA */}
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00f0ff] to-[#0077b6] p-0.5 shadow-md flex items-center justify-center">
@@ -25,12 +25,12 @@ export const Footer: React.FC = () => {
                   <Gamepad2 className="w-5 h-5 text-[#00f0ff]" />
                 </div>
               </div>
-              <span className="font-display font-extrabold text-xl tracking-wider text-white">
-                BASAVRAJ
+              <span className="font-display font-extrabold text-xl tracking-wider text-white uppercase">
+                GAMING ADDA
               </span>
             </div>
             <p className="text-white/60 text-xs leading-relaxed font-sans">
-              Hubli's premium gaming arena featuring PS5 console stations, 4K 120Hz OLED displays, luxury seating, and real-time station booking.
+              Hubli's premium gaming lounge featuring 2 PS5 4K 120Hz OLED screen stations, luxury recliners, and real-time station booking.
             </p>
             <div className="flex items-center gap-2 text-xs font-mono text-[#00f0ff]">
               <Sparkles className="w-3.5 h-3.5" /> Play. Compete. Dominate.
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs font-mono text-white/70">
               <li><a href="#hero" className="hover:text-[#00f0ff] transition-colors">Home</a></li>
-              <li><a href="#live-status" className="hover:text-[#00f0ff] transition-colors">Live Station Status</a></li>
+              <li><a href="#live-status" className="hover:text-[#00f0ff] transition-colors">Live Station Status (2 Screens)</a></li>
               <li><a href="#games" className="hover:text-[#00f0ff] transition-colors">Games Showcase</a></li>
               <li><a href="#pricing" className="hover:text-[#00f0ff] transition-colors">Hourly Rates</a></li>
               <li><a href="#booking-section" className="hover:text-[#00f0ff] transition-colors">Book Session</a></li>
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 font-mono">
-          <p>© {new Date().getFullYear()} Basavraj Gaming Arena. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Gaming Adda. All rights reserved.</p>
           
           <div className="flex items-center gap-1">
             <span>Designed for</span>

@@ -223,7 +223,7 @@ export const Gallery: React.FC = () => {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 glass-panel px-5 py-2 rounded-full border border-white/10 text-xs font-mono text-white/70">
             <MapPin className="w-3.5 h-3.5 text-[#00f0ff]" />
-            <span>Visit Basavraj Gaming Arena in Hubli to experience our lounge in person</span>
+            <span>Visit Gaming Adda in Hubli to experience our lounge in person</span>
           </div>
         </div>
 
@@ -299,7 +299,7 @@ export const Gallery: React.FC = () => {
 
                 <div className="flex items-center gap-2 shrink-0">
                   <span className="text-xs font-mono text-emerald-400 font-bold">
-                    Basavraj Gaming Arena • Hubli
+                    Gaming Adda • Hubli
                   </span>
                 </div>
               </div>

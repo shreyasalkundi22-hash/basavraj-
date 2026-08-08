@@ -51,12 +51,8 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
   };
 
   const stationOptions = [
-    { id: 'st-1', name: 'STATION 01 (PS5 • 4K OLED)' },
-    { id: 'st-2', name: 'STATION 02 (PS5 • 4K OLED)' },
-    { id: 'st-3', name: 'STATION 03 (PS5 • 4K OLED)' },
-    { id: 'st-4', name: 'STATION 04 (PS5 Squad Lounge)' },
-    { id: 'st-5', name: 'STATION 05 (PS5 • 4K OLED)' },
-    { id: 'st-6', name: 'STATION 06 (PS5 Pro • 4K OLED)' },
+    { id: 'st-1', name: 'STATION 01 (PS5 • 4K 120Hz OLED)' },
+    { id: 'st-2', name: 'STATION 02 (PS5 • 4K 120Hz OLED)' },
   ];
 
   const handleConfirmBooking = async (e: React.FormEvent) => {
@@ -87,7 +83,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
     }
   };
 
-  const whatsappMessage = encodeURIComponent("Hi Basavraj Gaming Arena, I would like to book a gaming session.");
+  const whatsappMessage = encodeURIComponent("Hi Gaming Adda, I would like to book a gaming session.");
   const directWhatsappUrl = `https://wa.me/919916879803?text=${whatsappMessage}`;
 
   return (

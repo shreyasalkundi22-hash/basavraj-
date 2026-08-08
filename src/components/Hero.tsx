@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Gamepad2, ChevronDown, MapPin } from 'lucide-react';
+import { Calendar, Gamepad2, ChevronDown, MapPin, Sparkles } from 'lucide-react';
 import { audioService } from '../services/audioService';
 
 interface HeroProps {
@@ -90,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=85"
-          alt="Basavraj Gaming Arena Esports Lounge"
+          alt="Gaming Adda Lounge"
           className="w-full h-full object-cover object-center opacity-30 filter contrast-125 saturate-125"
         />
         {/* Dark Vignette Overlay for Crisp Typography */}
@@ -111,7 +111,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2.5 glass-panel px-4 py-1.5 rounded-full border border-emerald-500/30 text-xs font-mono text-white mb-8 shadow-lg"
+          className="inline-flex items-center gap-2.5 glass-panel px-4 py-1.5 rounded-full border border-emerald-500/30 text-xs font-mono text-white mb-6 shadow-lg"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="font-bold text-emerald-400">OPEN TODAY • 9 AM – 11 PM</span>
@@ -120,11 +120,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           <span className="text-white/80">HUBLI, KARNATAKA</span>
         </motion.div>
 
+        {/* CENTRE NAME DIRECTLY ABOVE HEADLINE */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="mb-4 inline-flex items-center gap-2 px-5 py-1.5 rounded-2xl bg-gradient-to-r from-[#00f0ff]/20 via-[#00f0ff]/10 to-[#00f0ff]/20 border border-[#00f0ff]/40 shadow-xl"
+        >
+          <Sparkles className="w-4 h-4 text-[#00f0ff]" />
+          <span className="text-base sm:text-xl font-mono font-extrabold tracking-widest text-[#00f0ff] uppercase">
+            GAMING ADDA
+          </span>
+          <Sparkles className="w-4 h-4 text-[#00f0ff]" />
+        </motion.div>
+
         {/* Main Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
           className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-white leading-tight font-display mb-6 uppercase"
         >
           PLAY. COMPETE. <br />
@@ -140,7 +154,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light mb-10 max-w-2xl"
         >
-          Hubli's premium gaming destination.
+          Hubli's premium gaming destination with 2 PS5 4K 120Hz screens.
         </motion.p>
 
         {/* CTA Buttons */}

@@ -20,7 +20,7 @@ const HOURLY_TIME_SLOTS = [
   { id: "22:00", label: "10:00 PM - 11:00 PM", hour24: 22 },
 ];
 
-const STORAGE_KEY = 'BGC_BOOKINGS_STORAGE_V1';
+const STORAGE_KEY = 'GAMING_ADDA_BOOKINGS_STORAGE_V1';
 
 // Seed initial realistic bookings for demonstration
 const getDefaultBookings = (): BookingRequest[] => {
@@ -31,7 +31,7 @@ const getDefaultBookings = (): BookingRequest[] => {
 
   return [
     {
-      id: 'BGC-8841-A',
+      id: 'ADDA-8841-A',
       name: 'Rohan Patil',
       phone: '+91 9845123456',
       email: 'rohan.p@gmail.com',
@@ -44,7 +44,7 @@ const getDefaultBookings = (): BookingRequest[] => {
       createdAt: new Date().toISOString(),
     },
     {
-      id: 'BGC-8842-B',
+      id: 'ADDA-8842-B',
       name: 'Aditya Kulkarni',
       phone: '+91 9741987654',
       date: today,
@@ -56,7 +56,7 @@ const getDefaultBookings = (): BookingRequest[] => {
       createdAt: new Date().toISOString(),
     },
     {
-      id: 'BGC-8843-C',
+      id: 'ADDA-8843-C',
       name: 'Sneha Hubli',
       phone: '+91 9900112233',
       date: tomorrow,
@@ -123,11 +123,11 @@ export const getDayAvailabilityStatus = (dateStr: string): 'available' | 'limite
 export const generateBookingId = (): string => {
   const rand = Math.floor(1000 + Math.random() * 9000);
   const year = new Date().getFullYear();
-  return `BGC-${year}-${rand}`;
+  return `ADDA-${year}-${rand}`;
 };
 
 export const generateOwnerWhatsAppMessage = (b: BookingRequest): string => {
-  return `🚨 *NEW BOOKING CONFIRMED - BASAVRAJ GAMING CENTRE* 🚨
+  return `🚨 *NEW BOOKING CONFIRMED - GAMING ADDA* 🚨
 
 🆔 *Booking ID:* ${b.id}
 👤 *Customer Name:* ${b.name}
@@ -138,7 +138,7 @@ export const generateOwnerWhatsAppMessage = (b: BookingRequest): string => {
 💳 *Payment Mode:* ${b.paymentMethod.toUpperCase()}
 💰 *Total Amount:* ₹${b.price}
 
-📍 *Basavraj Gaming Centre • Hubli, Karnataka*`;
+📍 *Gaming Adda • Hubli, Karnataka*`;
 };
 
 export const getOwnerWhatsAppUrl = (b: BookingRequest): string => {
@@ -149,10 +149,8 @@ export const getOwnerWhatsAppUrl = (b: BookingRequest): string => {
 export const createBooking = async (
   requestData: Omit<BookingRequest, 'id' | 'createdAt'>
 ): Promise<{ success: boolean; bookingId: string; message: string; booking?: BookingRequest }> => {
-  // Simulate network delay for premium feel
   await new Promise(resolve => setTimeout(resolve, 600));
 
-  // Check double booking
   const existingSlots = getSlotsForDate(requestData.date);
   const targetSlot = existingSlots.find(s => s.id === requestData.slotId);
 
@@ -176,7 +174,7 @@ export const createBooking = async (
   return {
     success: true,
     bookingId,
-    message: 'Booking confirmed successfully! See you at Basavraj Gaming Centre.',
+    message: 'Booking confirmed successfully! See you at Gaming Adda.',
     booking: fullBooking,
   };
 };

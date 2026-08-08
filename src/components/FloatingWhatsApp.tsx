@@ -5,7 +5,7 @@ import { audioService } from '../services/audioService';
 export const FloatingWhatsApp: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const whatsappMessage = encodeURIComponent("Hi Basavraj Gaming Arena, I would like to book a gaming session.");
+  const whatsappMessage = encodeURIComponent("Hi Gaming Adda, I would like to book a gaming session.");
   const whatsappUrl = `https://wa.me/919916879803?text=${whatsappMessage}`;
 
   return (

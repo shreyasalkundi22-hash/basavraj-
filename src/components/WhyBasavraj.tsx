@@ -44,7 +44,7 @@ export const WhyBasavraj: React.FC = () => {
             className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>THE BASAVRAJ ADVANTAGE</span>
+            <span>THE GAMING ADDA ADVANTAGE</span>
           </motion.div>
 
           <motion.h2
@@ -53,7 +53,7 @@ export const WhyBasavraj: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            WHY <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">BASAVRAJ</span>
+            WHY <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">GAMING ADDA</span>
           </motion.h2>
 
           <motion.p

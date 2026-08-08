@@ -11,7 +11,7 @@ const reviewsData: ReviewItem[] = [
     handle: '@praveen_gamer_hubli',
     avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    comment: 'Hands down the most insane gaming centre in Hubli! The PS5 OLED displays run EA FC 25 at butter smooth 120 FPS. Super chill AC environment and awesome RGB vibe.',
+    comment: 'Amazing setup and a really fun gaming experience! The 4K 120Hz OLED displays run EA FC 25 at buttery smooth frame rates.',
     favoriteGame: 'EA FC 25 / FIFA',
     date: '2 days ago',
   },
@@ -21,7 +21,7 @@ const reviewsData: ReviewItem[] = [
     handle: '@abhi_squad_leader',
     avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    comment: 'We booked the 4-player squad station for a weekend Tekken & Call of Duty tournament. Zero lag, ultra fast fiber net, and comfortable Secretlab chairs!',
+    comment: 'Great place to spend time with friends. We booked the 4-player squad station for a weekend Tekken tournament. Zero lag!',
     favoriteGame: 'Call of Duty & Tekken 8',
     date: '1 week ago',
   },
@@ -31,7 +31,7 @@ const reviewsData: ReviewItem[] = [
     handle: '@vikram_hubli_pro',
     avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    comment: 'Great hourly pricing at ₹100/hr for single player and ₹300 for 4 players. The online slot booking system works in real-time so we never have to wait in line.',
+    comment: 'Clean setup and smooth gaming experience. The online station status and WhatsApp booking make it so convenient.',
     favoriteGame: 'God of War Ragnarök',
     date: '3 days ago',
   },
@@ -41,7 +41,7 @@ const reviewsData: ReviewItem[] = [
     handle: '@kavya_gameon',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    comment: 'A high-tech gem in Hubli! The 3D spatial surround sound headsets make Horizon and Spider-Man 2 feel like you are inside a movie theater.',
+    comment: 'A true high-end esports lounge in Hubli! The Secretlab chairs and Dolby 3D spatial headsets make multi-hour gaming feel effortless.',
     favoriteGame: 'Spider-Man 2',
     date: '5 days ago',
   },
@@ -70,11 +70,7 @@ export const Reviews: React.FC = () => {
   const current = reviewsData[currentIndex];
 
   return (
-    <section id="reviews" className="py-24 relative bg-[#090909] overflow-hidden">
-      {/* Glow Orbs */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#00f0ff]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#9d4edd]/10 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="reviews" className="py-24 relative bg-[#090909] overflow-hidden border-t border-white/5">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -83,19 +79,19 @@ export const Reviews: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1.5 rounded-full border border-amber-500/30 text-xs font-mono text-amber-300 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>COMMUNITY TESTIMONIALS</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>PLAYER REVIEWS</span>
           </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-extrabold text-white font-display tracking-tight mb-4"
+            className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            Loved by <span className="bg-gradient-to-r from-amber-300 via-[#00f0ff] to-[#9d4edd] bg-clip-text text-transparent">Hubli Gamers</span>
+            GAMER <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">FEEDBACK</span>
           </motion.h2>
 
           <motion.p
@@ -104,7 +100,7 @@ export const Reviews: React.FC = () => {
             viewport={{ once: true }}
             className="text-white/70 text-base sm:text-lg"
           >
-            Read real feedback from players who experience next-gen PS5 gaming every day at Basavraj Gaming Centre.
+            See what Hubli players have to say about their experience at Basavraj Gaming Arena.
           </motion.p>
         </div>
 
@@ -128,7 +124,7 @@ export const Reviews: React.FC = () => {
                   <img
                     src={current.avatar}
                     alt={current.name}
-                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#00f0ff] shadow-lg"
+                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#ff1e42] shadow-lg"
                   />
                   <div>
                     <div className="flex items-center gap-2">
@@ -137,7 +133,7 @@ export const Reviews: React.FC = () => {
                       </h3>
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 fill-emerald-400/20" />
                     </div>
-                    <span className="text-xs font-mono text-[#00f0ff]">{current.handle}</span>
+                    <span className="text-xs font-mono text-[#ff1e42]">{current.handle}</span>
                   </div>
                 </div>
 
@@ -151,14 +147,14 @@ export const Reviews: React.FC = () => {
               </div>
 
               {/* Comment Body */}
-              <p className="text-white/90 text-base sm:text-xl font-light leading-relaxed mb-8 italic">
+              <p className="text-white/90 text-base sm:text-xl font-light leading-relaxed mb-8 italic font-sans">
                 "{current.comment}"
               </p>
 
               {/* Footer Specs */}
               <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs font-mono">
                 <span className="text-white/60">
-                  Favorite Title: <strong className="text-[#00f0ff]">{current.favoriteGame}</strong>
+                  Favorite Title: <strong className="text-[#ff1e42]">{current.favoriteGame}</strong>
                 </span>
                 <span className="text-white/40">{current.date}</span>
               </div>
@@ -184,7 +180,7 @@ export const Reviews: React.FC = () => {
                     setCurrentIndex(i);
                   }}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    currentIndex === i ? 'w-8 bg-[#00f0ff]' : 'w-2 bg-white/20'
+                    currentIndex === i ? 'w-8 bg-[#ff1e42]' : 'w-2 bg-white/20'
                   }`}
                 />
               ))}

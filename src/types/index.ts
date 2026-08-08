@@ -21,9 +21,37 @@ export interface BookingRequest {
   slotId: string; // "09:00"
   slotLabel: string;
   playerCount: number;
+  stationId?: string;
   price: number;
   paymentMethod: 'upi' | 'card' | 'cash';
   createdAt: string;
+}
+
+export interface GamingStation {
+  id: string;
+  name: string;
+  status: 'available' | 'occupied';
+  specs: string;
+  currentTitle?: string;
+}
+
+export interface GameItem {
+  id: string;
+  title: string;
+  genre: string;
+  image: string;
+  players: string;
+  badge?: string;
+}
+
+export interface LeaderboardEntry {
+  rank: number;
+  player: string;
+  handle: string;
+  wins: number;
+  points: number;
+  favoriteGame: string;
+  avatar: string;
 }
 
 export interface PricingTier {
@@ -51,7 +79,7 @@ export interface ArenaFeature {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'ps5' | 'setup' | 'ambience' | 'controllers' | 'chairs';
+  category: 'setups' | 'controllers' | 'screens' | 'ambience' | 'players' | 'interior';
   image: string;
   description: string;
   resolution: string;

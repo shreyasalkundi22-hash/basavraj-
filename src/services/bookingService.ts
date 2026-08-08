@@ -10,6 +10,43 @@ export const calculateBookingPrice = (playerCount: number): number => {
   return (playerCount || 1) * HOURLY_RATE_PER_PLAYER;
 };
 
+// Safe Local Date Formatting Utilities (No UTC Shifting)
+export const formatLocalYYYYMMDD = (year: number, monthIndex: number, dayNum: number): string => {
+  const yyyy = year.toString().padStart(4, '0');
+  const mm = (monthIndex + 1).toString().padStart(2, '0');
+  const dd = dayNum.toString().padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+export const getTodayLocalYYYYMMDD = (): string => {
+  const now = new Date();
+  return formatLocalYYYYMMDD(now.getFullYear(), now.getMonth(), now.getDate());
+};
+
+export const getTomorrowLocalYYYYMMDD = (): string => {
+  const now = new Date();
+  const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  return formatLocalYYYYMMDD(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate());
+};
+
+export const formatDisplayDateString = (dateStr: string): string => {
+  if (!dateStr || !dateStr.includes('-')) return dateStr;
+  const parts = dateStr.split('-');
+  if (parts.length !== 3) return dateStr;
+  const year = parseInt(parts[0], 10);
+  const monthIndex = parseInt(parts[1], 10) - 1;
+  const day = parseInt(parts[2], 10);
+  
+  // Noon local time avoids any DST / timezone boundary issues
+  const d = new Date(year, monthIndex, day, 12, 0, 0);
+  return d.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+};
+
 // Configurable Stations (Easily scalable to 3+ stations later)
 export const GAMING_STATIONS: GamingStation[] = [
   { id: 'st-1', name: 'STATION 01', status: 'available', specs: 'PS5 • 55" 4K 120Hz OLED Display' },
@@ -33,14 +70,12 @@ export const HOURLY_TIME_SLOTS = [
   { id: "22:00", label: "10:00 PM – 11:00 PM", hour24: 22 },
 ];
 
-const STORAGE_KEY = 'GAMING_ADDA_BOOKINGS_PERSISTENT_V2';
+const STORAGE_KEY = 'GAMING_ADDA_BOOKINGS_PERSISTENT_V3';
 
-// Initial seed bookings for initial demo presentation
+// Initial seed bookings for demonstration
 const getDefaultBookings = (): BookingRequest[] => {
-  const today = new Date().toISOString().split('T')[0];
-  const tomorrowObj = new Date();
-  tomorrowObj.setDate(tomorrowObj.getDate() + 1);
-  const tomorrow = tomorrowObj.toISOString().split('T')[0];
+  const today = getTodayLocalYYYYMMDD();
+  const tomorrow = getTomorrowLocalYYYYMMDD();
 
   return [
     {
@@ -108,7 +143,6 @@ export const getStoredBookings = (): BookingRequest[] => {
 
 export const saveBooking = (booking: BookingRequest): void => {
   const existing = getStoredBookings();
-  // Filter out any previous booking with same ID if updating
   const filtered = existing.filter(b => b.id !== booking.id);
   const updated = [booking, ...filtered];
   localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
@@ -135,7 +169,6 @@ export const deleteBookingInStorage = (bookingId: string): boolean => {
 
 export const getSlotsForDateAndStation = (dateStr: string, stationId: string): HourlySlot[] => {
   const allBookings = getStoredBookings();
-  // Only active confirmed bookings for target date & station
   const activeBookings = allBookings.filter(
     b => b.date === dateStr && b.stationId === stationId && b.status !== 'cancelled'
   );

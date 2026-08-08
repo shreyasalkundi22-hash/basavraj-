@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, CheckCircle2, XCircle, Sparkles, ShieldCheck, Gamepad2, Users, User, Phone, MessageSquare, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { getSlotsForDateAndStation, getDayAvailabilityStatusForStation, createBooking, getOwnerWhatsAppUrl, calculateBookingPrice, GAMING_STATIONS } from '../services/bookingService';
+import { getSlotsForDateAndStation, getDayAvailabilityStatusForStation, createBooking, getOwnerWhatsAppUrl, calculateBookingPrice, GAMING_STATIONS, formatLocalYYYYMMDD, getTodayLocalYYYYMMDD, formatDisplayDateString } from '../services/bookingService';
 import type { HourlySlot, BookingRequest } from '../types';
 import { audioService } from '../services/audioService';
 
@@ -12,8 +12,10 @@ interface BookingCalendarProps {
 
 export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingComplete }) => {
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
-  const todayStr = new Date().toISOString().split('T')[0];
-  const [selectedDateStr, setSelectedDateStr] = useState<string>(todayStr);
+  
+  // Single Source of Truth for Selected Date String (Local YYYY-MM-DD format)
+  const todayLocalStr = getTodayLocalYYYYMMDD();
+  const [selectedDateStr, setSelectedDateStr] = useState<string>(todayLocalStr);
 
   // Active Station Selection (Station 01 or Station 02)
   const [activeStationId, setActiveStationId] = useState<string>('st-1');
@@ -38,7 +40,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
     setSlots(data);
   };
 
-  // Listen for real-time booking updates
+  // Listen for real-time booking updates & sync slots
   useEffect(() => {
     refreshSlots(selectedDateStr, activeStationId);
 
@@ -50,7 +52,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
     return () => window.removeEventListener('bgc-booking-updated', handleUpdate);
   }, [selectedDateStr, activeStationId]);
 
-  // Calendar month calculations
+  // Calendar month calculations (Controls the month grid view)
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
@@ -72,12 +74,11 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
     setCurrentDate(new Date(year, month + 1, 1));
   };
 
-  // Populate availability status map for calendar days
+  // Populate availability status map for visible calendar days using exact local date strings
   useEffect(() => {
     const map: Record<string, 'available' | 'limited' | 'full'> = {};
     for (let day = 1; day <= daysInMonth; day++) {
-      const d = new Date(year, month, day);
-      const dateStr = d.toISOString().split('T')[0];
+      const dateStr = formatLocalYYYYMMDD(year, month, day);
       map[dateStr] = getDayAvailabilityStatusForStation(dateStr, activeStationId);
     }
     setAvailabilityMap(map);
@@ -154,6 +155,10 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
     setPhone('');
     setErrorMsg('');
   };
+
+  // Compare dayDate with todayDate using local midnight
+  const nowMidnight = new Date();
+  nowMidnight.setHours(0, 0, 0, 0);
 
   return (
     <section id="booking-calendar" className="py-24 relative bg-[#090909] overflow-hidden">
@@ -285,12 +290,15 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
 
               {Array.from({ length: daysInMonth }).map((_, idx) => {
                 const dayNum = idx + 1;
-                const d = new Date(year, month, dayNum);
-                const dateStr = d.toISOString().split('T')[0];
+                // Generate EXACT local YYYY-MM-DD date string (NO UTC SHIFT)
+                const dateStr = formatLocalYYYYMMDD(year, month, dayNum);
                 const isSelected = dateStr === selectedDateStr;
-                const isToday = dateStr === todayStr;
+                const isToday = dateStr === todayLocalStr;
                 const status = availabilityMap[dateStr] || 'available';
-                const isPast = d < new Date(new Date().setHours(0, 0, 0, 0));
+
+                // Check if day is in past
+                const thisDayObj = new Date(year, month, dayNum, 0, 0, 0);
+                const isPast = thisDayObj < nowMidnight;
 
                 let statusDotColor = 'bg-emerald-400';
                 if (status === 'limited') statusDotColor = 'bg-amber-400';
@@ -302,6 +310,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
                     disabled={isPast}
                     onClick={() => {
                       audioService.playClickSound();
+                      // Update single source of truth date state
                       setSelectedDateStr(dateStr);
                     }}
                     className={`h-11 rounded-2xl flex flex-col items-center justify-center relative transition-all duration-200 ${
@@ -336,13 +345,9 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
                   <div className="flex items-center gap-2 text-xs font-mono text-[#00f0ff] uppercase tracking-wider mb-0.5 font-bold">
                     <Clock className="w-4 h-4" /> Time Slots ({activeStationObj.name})
                   </div>
+                  {/* SINGLE SOURCE OF TRUTH: Format selectedDateStr directly without UTC shift */}
                   <h3 className="text-xl font-bold text-white font-display">
-                    {new Date(selectedDateStr + 'T00:00:00').toLocaleDateString('en-US', {
-                      weekday: 'long',
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
+                    {formatDisplayDateString(selectedDateStr)}
                   </h3>
                 </div>
                 <div className="glass-panel px-3.5 py-1.5 rounded-full text-xs font-mono text-emerald-400 border border-emerald-500/30 font-bold">
@@ -520,8 +525,8 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ onBookingCompl
                     <h3 className="text-2xl font-extrabold text-white font-display">
                       {activeStationObj.name} Session
                     </h3>
-                    <p className="text-white/60 text-xs">
-                      {selectedDateStr} • {selectedSlotForBooking.label}
+                    <p className="text-white/60 text-xs font-mono">
+                      {formatDisplayDateString(selectedDateStr)} • {selectedSlotForBooking.label}
                     </p>
                   </div>
 

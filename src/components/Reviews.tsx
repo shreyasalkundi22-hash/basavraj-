@@ -79,7 +79,7 @@ export const Reviews: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>PLAYER REVIEWS</span>
@@ -91,7 +91,7 @@ export const Reviews: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            GAMER <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">FEEDBACK</span>
+            GAMER <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">FEEDBACK</span>
           </motion.h2>
 
           <motion.p
@@ -124,7 +124,7 @@ export const Reviews: React.FC = () => {
                   <img
                     src={current.avatar}
                     alt={current.name}
-                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#ff1e42] shadow-lg"
+                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#00f0ff] shadow-lg"
                   />
                   <div>
                     <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ export const Reviews: React.FC = () => {
                       </h3>
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 fill-emerald-400/20" />
                     </div>
-                    <span className="text-xs font-mono text-[#ff1e42]">{current.handle}</span>
+                    <span className="text-xs font-mono text-[#00f0ff]">{current.handle}</span>
                   </div>
                 </div>
 
@@ -154,7 +154,7 @@ export const Reviews: React.FC = () => {
               {/* Footer Specs */}
               <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs font-mono">
                 <span className="text-white/60">
-                  Favorite Title: <strong className="text-[#ff1e42]">{current.favoriteGame}</strong>
+                  Favorite Title: <strong className="text-[#00f0ff]">{current.favoriteGame}</strong>
                 </span>
                 <span className="text-white/40">{current.date}</span>
               </div>
@@ -180,7 +180,7 @@ export const Reviews: React.FC = () => {
                     setCurrentIndex(i);
                   }}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    currentIndex === i ? 'w-8 bg-[#ff1e42]' : 'w-2 bg-white/20'
+                    currentIndex === i ? 'w-8 bg-[#00f0ff]' : 'w-2 bg-white/20'
                   }`}
                 />
               ))}

@@ -79,7 +79,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onOpenBooking }) => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            BASAVRAJ <span className="bg-gradient-to-r from-amber-300 via-white to-[#ff1e42] bg-clip-text text-transparent">LEADERBOARD</span>
+            BASAVRAJ <span className="bg-gradient-to-r from-amber-300 via-white to-[#00f0ff] bg-clip-text text-transparent">LEADERBOARD</span>
           </motion.h2>
 
           <motion.p
@@ -130,7 +130,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onOpenBooking }) => {
                         />
                         <div>
                           <div className="text-white">{row.player}</div>
-                          <div className="text-xs font-mono text-[#ff1e42]">{row.handle}</div>
+                          <div className="text-xs font-mono text-[#00f0ff]">{row.handle}</div>
                         </div>
                       </td>
                       <td className="py-4 px-6 text-white/70 text-xs">
@@ -139,7 +139,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onOpenBooking }) => {
                       <td className="py-4 px-6 text-right text-emerald-400 font-bold">
                         {row.wins} W
                       </td>
-                      <td className="py-4 px-6 text-right text-[#ff1e42] font-extrabold text-base font-display">
+                      <td className="py-4 px-6 text-right text-[#00f0ff] font-extrabold text-base font-display">
                         {row.points.toLocaleString()} PTS
                       </td>
                     </motion.tr>
@@ -161,7 +161,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onOpenBooking }) => {
                 audioService.playClickSound();
                 onOpenBooking();
               }}
-              className="btn-red px-6 py-2.5 text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2"
+              className="btn-blue px-6 py-2.5 text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>JOIN TOURNAMENT</span>

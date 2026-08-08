@@ -4,7 +4,7 @@
   :root {
     --color-bg-dark: 9 9 9;
     --color-charcoal: 18 18 22;
-    --color-accent-red: 255 30 66;
+    --color-accent-blue: 0 240 255;
   }
 
   body {
@@ -23,7 +23,7 @@
 
 /* Premium Esports Dark Luxury Styling */
 .glass-panel {
-  background: rgba(18, 18, 22, 0.75);
+  background: rgba(18, 18, 24, 0.75);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -47,24 +47,24 @@
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 30, 66, 0.4);
+  border-color: rgba(0, 240, 255, 0.4);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8),
-              0 0 25px rgba(255, 30, 66, 0.15);
+              0 0 25px rgba(0, 240, 255, 0.15);
   transform: translateY(-4px);
 }
 
-/* Electric Red CTA Button */
-.btn-red {
-  background: linear-gradient(135deg, #ff1e42 0%, #cc0020 100%);
+/* Electric Blue CTA Button */
+.btn-red, .btn-blue {
+  background: linear-gradient(135deg, #00f0ff 0%, #0077b6 100%);
   color: #ffffff;
   font-weight: 700;
   border-radius: 9999px;
-  box-shadow: 0 4px 20px rgba(255, 30, 66, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-red:hover {
-  box-shadow: 0 6px 28px rgba(255, 30, 66, 0.55);
+.btn-red:hover, .btn-blue:hover {
+  box-shadow: 0 6px 28px rgba(0, 240, 255, 0.5);
   transform: translateY(-1px) scale(1.02);
 }
 
@@ -78,7 +78,7 @@
 
 .btn-glass:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 30, 66, 0.4);
+  border-color: rgba(0, 240, 255, 0.4);
 }
 
 /* Cyber Grid */
@@ -102,5 +102,5 @@
   border: 2px solid #090909;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff1e42;
+  background: #00f0ff;
 }

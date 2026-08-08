@@ -9,7 +9,6 @@ import { ChooseYourBattle } from './components/ChooseYourBattle';
 import { Pricing } from './components/Pricing';
 import { BookingSection } from './components/BookingSection';
 import { Leaderboard } from './components/Leaderboard';
-import { GamingPass } from './components/GamingPass';
 import { Gallery } from './components/Gallery';
 import { Reviews } from './components/Reviews';
 import { Contact } from './components/Contact';
@@ -51,7 +50,7 @@ export function App() {
       {/* Startup Screen */}
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
-      <div className="min-h-screen bg-[#090909] text-white selection:bg-[#ff1e42]/30 selection:text-[#ff1e42] relative font-sans">
+      <div className="min-h-screen bg-[#090909] text-white selection:bg-[#00f0ff]/30 selection:text-[#00f0ff] relative font-sans">
         {/* Animated Custom Cursor */}
         <CustomCursor />
 
@@ -67,7 +66,6 @@ export function App() {
           <Pricing onSelectTier={handleSelectPricingTier} />
           <BookingSection />
           <Leaderboard onOpenBooking={handleOpenBooking} />
-          <GamingPass onOpenBooking={handleOpenBooking} />
           <Gallery />
           <Reviews />
           <Contact />

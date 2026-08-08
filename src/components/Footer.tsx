@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#090909] border-t border-white/10 pt-16 pb-12 overflow-hidden">
       {/* Top Accent Line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ff1e42] to-transparent opacity-60" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent opacity-60" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -20,9 +20,9 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ff1e42] to-[#cc0020] p-0.5 shadow-md flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00f0ff] to-[#0077b6] p-0.5 shadow-md flex items-center justify-center">
                 <div className="w-full h-full bg-[#090909] rounded-[10px] flex items-center justify-center">
-                  <Gamepad2 className="w-5 h-5 text-[#ff1e42]" />
+                  <Gamepad2 className="w-5 h-5 text-[#00f0ff]" />
                 </div>
               </div>
               <span className="font-display font-extrabold text-xl tracking-wider text-white">
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             <p className="text-white/60 text-xs leading-relaxed font-sans">
               Hubli's premium gaming arena featuring PS5 console stations, 4K 120Hz OLED displays, luxury seating, and real-time station booking.
             </p>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#ff1e42]">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#00f0ff]">
               <Sparkles className="w-3.5 h-3.5" /> Play. Compete. Dominate.
             </div>
           </div>
@@ -43,13 +43,13 @@ export const Footer: React.FC = () => {
               Quick Navigation
             </h4>
             <ul className="space-y-2 text-xs font-mono text-white/70">
-              <li><a href="#hero" className="hover:text-[#ff1e42] transition-colors">Home</a></li>
-              <li><a href="#live-status" className="hover:text-[#ff1e42] transition-colors">Live Station Status</a></li>
-              <li><a href="#games" className="hover:text-[#ff1e42] transition-colors">Games Showcase</a></li>
-              <li><a href="#pricing" className="hover:text-[#ff1e42] transition-colors">Hourly Rates</a></li>
-              <li><a href="#booking-section" className="hover:text-[#ff1e42] transition-colors">Book Session</a></li>
-              <li><a href="#gallery" className="hover:text-[#ff1e42] transition-colors">Gallery</a></li>
-              <li><a href="#leaderboard" className="hover:text-[#ff1e42] transition-colors">Leaderboard</a></li>
+              <li><a href="#hero" className="hover:text-[#00f0ff] transition-colors">Home</a></li>
+              <li><a href="#live-status" className="hover:text-[#00f0ff] transition-colors">Live Station Status</a></li>
+              <li><a href="#games" className="hover:text-[#00f0ff] transition-colors">Games Showcase</a></li>
+              <li><a href="#pricing" className="hover:text-[#00f0ff] transition-colors">Hourly Rates</a></li>
+              <li><a href="#booking-section" className="hover:text-[#00f0ff] transition-colors">Book Session</a></li>
+              <li><a href="#gallery" className="hover:text-[#00f0ff] transition-colors">Gallery</a></li>
+              <li><a href="#leaderboard" className="hover:text-[#00f0ff] transition-colors">Leaderboard</a></li>
             </ul>
           </div>
 
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="space-y-2 text-white/70">
               <p className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#ff1e42]" /> Hubli, Karnataka, India
+                <MapPin className="w-3.5 h-3.5 text-[#00f0ff]" /> Hubli, Karnataka, India
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-emerald-400" /> +91 9916879803
@@ -80,19 +80,19 @@ export const Footer: React.FC = () => {
             <div className="glass-panel p-4 rounded-2xl border border-white/10 space-y-2 text-xs font-mono">
               <div className="flex justify-between">
                 <span className="text-white/60">1 Player:</span>
-                <span className="text-[#ff1e42] font-bold">₹100/hr</span>
+                <span className="text-[#00f0ff] font-bold">₹100/hr</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/60">2 Players:</span>
-                <span className="text-[#ff1e42] font-bold">₹150/hr</span>
+                <span className="text-[#00f0ff] font-bold">₹150/hr</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/60">3 Players:</span>
-                <span className="text-[#ff1e42] font-bold">₹250/hr</span>
+                <span className="text-[#00f0ff] font-bold">₹250/hr</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/60">4 Players:</span>
-                <span className="text-[#ff1e42] font-bold">₹300/hr</span>
+                <span className="text-[#00f0ff] font-bold">₹300/hr</span>
               </div>
             </div>
           </div>
@@ -105,13 +105,13 @@ export const Footer: React.FC = () => {
           
           <div className="flex items-center gap-1">
             <span>Designed for</span>
-            <Heart className="w-3.5 h-3.5 text-[#ff1e42] fill-[#ff1e42] animate-pulse" />
+            <Heart className="w-3.5 h-3.5 text-[#00f0ff] fill-[#00f0ff] animate-pulse" />
             <span>Hubli Esports Community</span>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="p-2.5 rounded-full bg-white/5 hover:bg-[#ff1e42]/20 hover:text-[#ff1e42] text-white/80 transition-colors border border-white/10 flex items-center gap-1.5"
+            className="p-2.5 rounded-full bg-white/5 hover:bg-[#00f0ff]/20 hover:text-[#00f0ff] text-white/80 transition-colors border border-white/10 flex items-center gap-1.5"
           >
             <ArrowUp className="w-4 h-4" />
             <span>TOP</span>

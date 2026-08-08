@@ -100,7 +100,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>INSTANT SESSION RESERVATION</span>
@@ -112,7 +112,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            BOOK YOUR <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">SESSION</span>
+            BOOK YOUR <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">SESSION</span>
           </motion.h2>
 
           <motion.p
@@ -129,14 +129,14 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
         <div className="glass-card rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
           {confirmedBooking ? (
             <div className="text-center py-6">
-              <div className="w-16 h-16 rounded-full bg-[#ff1e42]/20 border border-[#ff1e42] mx-auto mb-4 flex items-center justify-center">
-                <CheckCircle2 className="w-10 h-10 text-[#ff1e42]" />
+              <div className="w-16 h-16 rounded-full bg-[#00f0ff]/20 border border-[#00f0ff] mx-auto mb-4 flex items-center justify-center">
+                <CheckCircle2 className="w-10 h-10 text-[#00f0ff]" />
               </div>
               <h3 className="text-2xl font-extrabold text-white font-display uppercase mb-2">
                 BOOKING CONFIRMED!
               </h3>
               <p className="text-xs font-mono text-white/70 mb-6 max-w-md mx-auto">
-                Station locked under ID: <strong className="text-[#ff1e42]">{confirmedBooking.id}</strong>. Showing details to owner at {OWNER_PHONE_DISPLAY}.
+                Station locked under ID: <strong className="text-[#00f0ff]">{confirmedBooking.id}</strong>. Showing details to owner at {OWNER_PHONE_DISPLAY}.
               </p>
 
               <div className="glass-panel p-6 rounded-2xl border border-white/10 text-left font-mono text-xs space-y-3 mb-6 max-w-md mx-auto">
@@ -154,7 +154,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                 </div>
                 <div className="flex justify-between pt-1 text-sm font-bold">
                   <span className="text-white">Total Amount:</span>
-                  <span className="text-[#ff1e42] font-display text-lg">₹{confirmedBooking.price}</span>
+                  <span className="text-[#00f0ff] font-display text-lg">₹{confirmedBooking.price}</span>
                 </div>
               </div>
 
@@ -163,7 +163,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                   href={getOwnerWhatsAppUrl(confirmedBooking)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-red px-6 py-3 text-xs font-mono uppercase font-bold flex items-center justify-center gap-2"
+                  className="btn-blue px-6 py-3 text-xs font-mono uppercase font-bold flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>NOTIFY OWNER ON WHATSAPP</span>
@@ -191,7 +191,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                     placeholder="Enter your full name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#ff1e42] text-white text-sm outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#00f0ff] text-white text-sm outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -204,7 +204,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                     placeholder="+91 99168 79803"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#ff1e42] text-white text-sm outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#00f0ff] text-white text-sm outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -213,25 +213,25 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-mono text-white/70 mb-1.5 uppercase font-bold flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#ff1e42]" /> 1. Select Date
+                    <Calendar className="w-3.5 h-3.5 text-[#00f0ff]" /> 1. Select Date
                   </label>
                   <input
                     type="date"
                     min={todayStr}
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#ff1e42] text-white text-sm outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#00f0ff] text-white text-sm outline-none transition-colors"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-mono text-white/70 mb-1.5 uppercase font-bold flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#ff1e42]" /> 2. Time Slot (9 AM - 11 PM)
+                    <Clock className="w-3.5 h-3.5 text-[#00f0ff]" /> 2. Time Slot (9 AM - 11 PM)
                   </label>
                   <select
                     value={slotId}
                     onChange={(e) => setSlotId(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#121216] border border-white/15 focus:border-[#ff1e42] text-white text-xs outline-none transition-colors font-mono"
+                    className="w-full px-4 py-3 rounded-xl bg-[#121216] border border-white/15 focus:border-[#00f0ff] text-white text-xs outline-none transition-colors font-mono"
                   >
                     {Object.entries(slotLabels).map(([id, label]) => (
                       <option key={id} value={id}>
@@ -246,7 +246,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-mono text-white/70 mb-1.5 uppercase font-bold flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-[#ff1e42]" /> 3. Number of Players
+                    <Users className="w-3.5 h-3.5 text-[#00f0ff]" /> 3. Number of Players
                   </label>
                   <div className="grid grid-cols-4 gap-2">
                     {[1, 2, 3, 4].map((count) => (
@@ -256,7 +256,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                         onClick={() => setPlayerCount(count)}
                         className={`py-3 rounded-xl text-xs font-mono font-bold transition-all border ${
                           playerCount === count
-                            ? 'bg-[#ff1e42] border-[#ff1e42] text-white shadow-md'
+                            ? 'bg-[#00f0ff] border-[#00f0ff] text-[#090909] shadow-md'
                             : 'bg-white/5 border-white/10 text-white/70 hover:text-white'
                         }`}
                       >
@@ -268,12 +268,12 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
 
                 <div>
                   <label className="block text-xs font-mono text-white/70 mb-1.5 uppercase font-bold flex items-center gap-1.5">
-                    <Gamepad2 className="w-3.5 h-3.5 text-[#ff1e42]" /> 4. Gaming Station
+                    <Gamepad2 className="w-3.5 h-3.5 text-[#00f0ff]" /> 4. Gaming Station
                   </label>
                   <select
                     value={stationId}
                     onChange={(e) => setStationId(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#121216] border border-white/15 focus:border-[#ff1e42] text-white text-xs outline-none transition-colors font-mono"
+                    className="w-full px-4 py-3 rounded-xl bg-[#121216] border border-white/15 focus:border-[#00f0ff] text-white text-xs outline-none transition-colors font-mono"
                   >
                     {stationOptions.map((st) => (
                       <option key={st.id} value={st.id}>
@@ -297,7 +297,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                       onClick={() => setPaymentMethod(method)}
                       className={`py-2.5 rounded-xl border text-center uppercase font-bold transition-all ${
                         paymentMethod === method
-                          ? 'bg-[#ff1e42]/20 border-[#ff1e42] text-white shadow-md'
+                          ? 'bg-[#00f0ff]/20 border-[#00f0ff] text-white shadow-md'
                           : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
                       }`}
                     >
@@ -326,7 +326,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingComplet
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-red py-4 text-sm font-mono tracking-wider uppercase font-bold shadow-xl flex items-center justify-center gap-2"
+                  className="btn-blue py-4 text-sm font-mono tracking-wider uppercase font-bold shadow-xl flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <span>LOCKING STATION...</span>

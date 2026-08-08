@@ -23,7 +23,7 @@ const pricingTiers: PricingTier[] = [
       'Air Conditioned Comfort',
       'All Top AAA Games Access',
     ],
-    gradient: 'from-[#ff1e42] to-[#cc0020]',
+    gradient: 'from-[#00f0ff] to-[#0077b6]',
   },
   {
     id: '2-players',
@@ -40,7 +40,7 @@ const pricingTiers: PricingTier[] = [
       'Pro Ergonomic Gaming Chairs',
       'AC Lounge & High Speed Wi-Fi',
     ],
-    gradient: 'from-[#ff1e42] to-[#cc0020]',
+    gradient: 'from-[#00f0ff] to-[#0077b6]',
   },
   {
     id: '3-players',
@@ -56,7 +56,7 @@ const pricingTiers: PricingTier[] = [
       'Spacious Seating Arrangement',
       'Custom Atmosphere Lounge',
     ],
-    gradient: 'from-[#ff1e42] to-[#cc0020]',
+    gradient: 'from-[#00f0ff] to-[#0077b6]',
   },
   {
     id: '4-players',
@@ -72,7 +72,7 @@ const pricingTiers: PricingTier[] = [
       'VIP Couch Seating Zone',
       'Complimentary Ambient Audio Headsets',
     ],
-    gradient: 'from-[#ff1e42] to-[#cc0020]',
+    gradient: 'from-[#00f0ff] to-[#0077b6]',
   },
 ];
 
@@ -87,7 +87,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>TRANSPARENT HOURLY PRICING</span>
@@ -99,7 +99,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-2"
           >
-            STARTS AT <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">₹100 / HOUR</span>
+            STARTS AT <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">₹100 / HOUR</span>
           </motion.h2>
 
           <motion.p
@@ -124,14 +124,14 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
               onMouseEnter={() => audioService.playHoverSound()}
               className={`glass-card rounded-3xl p-6 relative flex flex-col justify-between border ${
                 tier.popular
-                  ? 'border-[#ff1e42] shadow-2xl shadow-red-950/40 bg-gradient-to-b from-white/[0.08] to-white/[0.02]'
-                  : 'border-white/10 hover:border-[#ff1e42]/40'
+                  ? 'border-[#00f0ff] shadow-2xl shadow-cyan-950/40 bg-gradient-to-b from-white/[0.08] to-white/[0.02]'
+                  : 'border-white/10 hover:border-[#00f0ff]/40'
               }`}
             >
               {/* Popular Badge */}
               {tier.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 glass-panel px-4 py-1 rounded-full border border-[#ff1e42] bg-[#ff1e42]/20 text-[#ff1e42] text-[10px] font-mono font-extrabold tracking-widest uppercase flex items-center gap-1 shadow-lg">
-                  <Flame className="w-3 h-3 text-amber-400 fill-amber-400" />
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 glass-panel px-4 py-1 rounded-full border border-[#00f0ff] bg-[#00f0ff]/20 text-[#00f0ff] text-[10px] font-mono font-extrabold tracking-widest uppercase flex items-center gap-1 shadow-lg">
+                  <Flame className="w-3 h-3 text-cyan-300 fill-cyan-300" />
                   MOST POPULAR SQUAD
                 </div>
               )}
@@ -139,7 +139,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
               <div>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono tracking-widest text-[#ff1e42] uppercase flex items-center gap-1.5 font-bold">
+                  <span className="text-xs font-mono tracking-widest text-[#00f0ff] uppercase flex items-center gap-1.5 font-bold">
                     {tier.playerCount === 1 ? <User className="w-4 h-4" /> : <Users className="w-4 h-4" />}
                     {tier.players}
                   </span>
@@ -163,7 +163,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
                       audioService.playClickSound();
                       onSelectTier(tier.playerCount);
                     }}
-                    className="btn-red px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg group shrink-0"
+                    className="btn-blue px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg group shrink-0"
                   >
                     <Calendar className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
                     <span>BOOK NOW</span>
@@ -174,7 +174,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
                 <ul className="space-y-3 mb-6">
                   {tier.features.map((feat, i) => (
                     <li key={i} className="text-xs text-white/80 flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#ff1e42]/20 text-[#ff1e42] flex items-center justify-center shrink-0 mt-0.5 border border-[#ff1e42]/40">
+                      <div className="w-4 h-4 rounded-full bg-[#00f0ff]/20 text-[#00f0ff] flex items-center justify-center shrink-0 mt-0.5 border border-[#00f0ff]/40">
                         <Check className="w-2.5 h-2.5" />
                       </div>
                       <span>{feat}</span>
@@ -189,7 +189,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier }) => {
                   audioService.playClickSound();
                   onSelectTier(tier.playerCount);
                 }}
-                className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-[#ff1e42] hover:border-[#ff1e42] text-white text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-[#00f0ff] hover:border-[#00f0ff] hover:text-[#090909] text-white text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
               >
                 <span>SELECT {tier.players.toUpperCase()}</span>
               </button>

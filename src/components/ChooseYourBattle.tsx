@@ -78,7 +78,7 @@ export const ChooseYourBattle: React.FC<ChooseYourBattleProps> = ({ onPlayGame }
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>PLAYSTATION 5 LIBRARY</span>
@@ -90,7 +90,7 @@ export const ChooseYourBattle: React.FC<ChooseYourBattleProps> = ({ onPlayGame }
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            CHOOSE YOUR <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">BATTLE</span>
+            CHOOSE YOUR <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">BATTLE</span>
           </motion.h2>
 
           <motion.p
@@ -113,7 +113,7 @@ export const ChooseYourBattle: React.FC<ChooseYourBattleProps> = ({ onPlayGame }
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               onMouseEnter={() => audioService.playHoverSound()}
-              className="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between border border-white/10 hover:border-[#ff1e42]/50 transition-all duration-300"
+              className="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between border border-white/10 hover:border-[#00f0ff]/50 transition-all duration-300"
             >
               <div>
                 {/* Image Banner */}
@@ -127,23 +127,23 @@ export const ChooseYourBattle: React.FC<ChooseYourBattleProps> = ({ onPlayGame }
                   
                   {/* Badge */}
                   {game.badge && (
-                    <span className="absolute top-3 right-3 glass-panel px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider text-[#ff1e42] border border-[#ff1e42]/30">
+                    <span className="absolute top-3 right-3 glass-panel px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider text-[#00f0ff] border border-[#00f0ff]/30">
                       {game.badge}
                     </span>
                   )}
 
                   <div className="absolute bottom-3 left-4 text-[10px] font-mono text-white/70 flex items-center gap-1.5">
-                    <Gamepad2 className="w-3.5 h-3.5 text-[#ff1e42]" />
+                    <Gamepad2 className="w-3.5 h-3.5 text-[#00f0ff]" />
                     {game.players}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <span className="text-[11px] font-mono tracking-widest text-[#ff1e42] uppercase block mb-1">
+                  <span className="text-[11px] font-mono tracking-widest text-[#00f0ff] uppercase block mb-1 font-bold">
                     {game.genre}
                   </span>
-                  <h3 className="text-xl font-bold text-white font-display group-hover:text-red-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white font-display group-hover:text-cyan-300 transition-colors">
                     {game.title}
                   </h3>
                 </div>
@@ -156,7 +156,7 @@ export const ChooseYourBattle: React.FC<ChooseYourBattleProps> = ({ onPlayGame }
                     audioService.playClickSound();
                     onPlayGame(game.title);
                   }}
-                  className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-[#ff1e42] hover:border-[#ff1e42] text-white text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 group/btn"
+                  className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-[#00f0ff] hover:border-[#00f0ff] hover:text-[#090909] text-white text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 group/btn"
                 >
                   <span>PLAY NOW</span>
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

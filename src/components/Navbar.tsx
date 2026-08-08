@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#090909]/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-2xl shadow-red-950/20'
+          ? 'bg-[#090909]/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-2xl shadow-cyan-950/20'
           : 'bg-transparent py-5'
       }`}
     >
@@ -44,16 +44,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           className="flex items-center gap-3 group"
           onClick={() => audioService.playHoverSound()}
         >
-          <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-[#ff1e42] to-[#cc0020] p-0.5 shadow-lg group-hover:shadow-[#ff1e42]/40 transition-all duration-300">
+          <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-[#00f0ff] to-[#0077b6] p-0.5 shadow-lg group-hover:shadow-[#00f0ff]/40 transition-all duration-300">
             <div className="w-full h-full bg-[#090909] rounded-[10px] flex items-center justify-center">
-              <Gamepad2 className="w-6 h-6 text-[#ff1e42] group-hover:scale-110 transition-transform duration-300" />
+              <Gamepad2 className="w-6 h-6 text-[#00f0ff] group-hover:scale-110 transition-transform duration-300" />
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-extrabold text-lg md:text-xl tracking-wider text-white group-hover:text-red-400 transition-colors">
+            <span className="font-display font-extrabold text-lg md:text-xl tracking-wider text-white group-hover:text-cyan-300 transition-colors">
               BASAVRAJ
             </span>
-            <span className="text-[10px] font-mono tracking-widest text-[#ff1e42] uppercase -mt-1 flex items-center gap-1.5 font-bold">
+            <span className="text-[10px] font-mono tracking-widest text-[#00f0ff] uppercase -mt-1 flex items-center gap-1.5 font-bold">
               GAMING ARENA
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </span>
@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               key={link.name}
               href={link.href}
               onClick={() => audioService.playHoverSound()}
-              className="px-3.5 py-1.5 text-xs font-mono font-bold text-white/80 hover:text-[#ff1e42] rounded-full hover:bg-white/5 transition-all duration-200"
+              className="px-3.5 py-1.5 text-xs font-mono font-bold text-white/80 hover:text-[#00f0ff] rounded-full hover:bg-white/5 transition-all duration-200"
             >
               {link.name}
             </a>
@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               audioService.playClickSound();
               onOpenBooking();
             }}
-            className="btn-red px-6 py-2.5 text-xs font-mono tracking-wider uppercase flex items-center gap-2 group shadow-lg"
+            className="btn-blue px-6 py-2.5 text-xs font-mono tracking-wider uppercase flex items-center gap-2 group shadow-lg"
           >
             <Calendar className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             <span>BOOK NOW</span>
@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-xl bg-white/5 border border-white/10 text-white"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-[#ff1e42]" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-[#00f0ff]" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                     audioService.playClickSound();
                     setMobileMenuOpen(false);
                   }}
-                  className="px-4 py-2.5 text-sm font-mono font-bold text-white/90 hover:text-[#ff1e42] hover:bg-white/5 rounded-xl transition-colors"
+                  className="px-4 py-2.5 text-sm font-mono font-bold text-white/90 hover:text-[#00f0ff] hover:bg-white/5 rounded-xl transition-colors"
                 >
                   {link.name}
                 </a>
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="btn-red mt-2 py-3 text-center text-sm font-bold tracking-wider uppercase flex items-center justify-center gap-2"
+                className="btn-blue mt-2 py-3 text-center text-sm font-bold tracking-wider uppercase flex items-center justify-center gap-2"
               >
                 <Calendar className="w-4 h-4" /> BOOK NOW
               </button>

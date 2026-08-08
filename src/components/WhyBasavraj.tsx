@@ -41,7 +41,7 @@ export const WhyBasavraj: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>THE BASAVRAJ ADVANTAGE</span>
@@ -53,7 +53,7 @@ export const WhyBasavraj: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            WHY <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">BASAVRAJ</span>
+            WHY <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">BASAVRAJ</span>
           </motion.h2>
 
           <motion.p
@@ -78,19 +78,19 @@ export const WhyBasavraj: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 onMouseEnter={() => audioService.playHoverSound()}
-                className="glass-card rounded-3xl p-8 flex flex-col justify-between border border-white/10 hover:border-[#ff1e42]/40 transition-all duration-300 group"
+                className="glass-card rounded-3xl p-8 flex flex-col justify-between border border-white/10 hover:border-[#00f0ff]/40 transition-all duration-300 group"
               >
                 <div>
                   {/* Icon Emblem */}
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#ff1e42]/40 group-hover:bg-[#ff1e42]/10 transition-all">
-                    <Icon className="w-7 h-7 text-[#ff1e42] group-hover:scale-110 transition-transform" />
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#00f0ff]/40 group-hover:bg-[#00f0ff]/10 transition-all">
+                    <Icon className="w-7 h-7 text-[#00f0ff] group-hover:scale-110 transition-transform" />
                   </div>
 
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#ff1e42] uppercase block mb-1">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#00f0ff] uppercase block mb-1">
                     {item.tag}
                   </span>
 
-                  <h3 className="text-xl font-bold text-white font-display mb-3 group-hover:text-red-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white font-display mb-3 group-hover:text-cyan-300 transition-colors">
                     {item.title}
                   </h3>
 

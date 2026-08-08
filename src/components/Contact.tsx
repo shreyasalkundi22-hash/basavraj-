@@ -17,7 +17,7 @@ export const Contact: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>FIND US IN HUBLI</span>
@@ -29,7 +29,7 @@ export const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="text-4xl sm:text-6xl font-extrabold text-white font-display uppercase tracking-tight mb-3"
           >
-            READY TO <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">PLAY?</span>
+            READY TO <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">PLAY?</span>
           </motion.h2>
 
           <motion.p
@@ -51,9 +51,9 @@ export const Contact: React.FC = () => {
             <div className="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl space-y-6">
               
               <div className="flex items-center gap-3 pb-6 border-b border-white/10">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#ff1e42] to-[#cc0020] p-0.5 shadow-lg flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00f0ff] to-[#0077b6] p-0.5 shadow-lg flex items-center justify-center">
                   <div className="w-full h-full bg-[#090909] rounded-[14px] flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-[#ff1e42]" />
+                    <MapPin className="w-6 h-6 text-[#00f0ff]" />
                   </div>
                 </div>
                 <div>
@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
                 
                 {/* Address Placeholder */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[#ff1e42] shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[#00f0ff] shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -93,7 +93,7 @@ export const Contact: React.FC = () => {
                     <a
                       href="tel:+919916879803"
                       onClick={() => audioService.playClickSound()}
-                      className="text-white font-bold hover:text-[#ff1e42] transition-colors"
+                      className="text-white font-bold hover:text-[#00f0ff] transition-colors"
                     >
                       +91 9916879803
                     </a>
@@ -123,13 +123,13 @@ export const Contact: React.FC = () => {
                     onClick={() => audioService.playClickSound()}
                     className="btn-glass py-3.5 rounded-2xl text-xs uppercase tracking-wider font-bold text-center flex items-center justify-center gap-2"
                   >
-                    <Navigation className="w-4 h-4 text-[#ff1e42]" /> GET DIRECTIONS
+                    <Navigation className="w-4 h-4 text-[#00f0ff]" /> GET DIRECTIONS
                   </a>
 
                   <a
                     href="tel:+919916879803"
                     onClick={() => audioService.playClickSound()}
-                    className="btn-red py-3.5 text-xs uppercase tracking-wider font-bold text-center flex items-center justify-center gap-2"
+                    className="btn-blue py-3.5 text-xs uppercase tracking-wider font-bold text-center flex items-center justify-center gap-2"
                   >
                     <Phone className="w-4 h-4" /> CALL NOW
                   </a>
@@ -168,7 +168,7 @@ export const Contact: React.FC = () => {
             <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 glass-panel p-4 rounded-2xl border border-white/20 shadow-xl flex items-center justify-between gap-4">
               <div>
                 <div className="text-xs font-mono font-bold text-white flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#ff1e42]" /> Hubli, Karnataka
+                  <MapPin className="w-4 h-4 text-[#00f0ff]" /> Hubli, Karnataka
                 </div>
                 <span className="text-[10px] font-mono text-white/60">Basavraj Gaming Arena</span>
               </div>
@@ -178,7 +178,7 @@ export const Contact: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => audioService.playClickSound()}
-                className="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold text-[#ff1e42] flex items-center gap-1.5 shrink-0"
+                className="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold text-[#00f0ff] flex items-center gap-1.5 shrink-0"
               >
                 <Navigation className="w-3.5 h-3.5" /> Directions
               </a>

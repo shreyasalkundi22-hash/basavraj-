@@ -35,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       vx: (Math.random() - 0.5) * 0.5,
       vy: (Math.random() - 0.5) * 0.5,
       size: Math.random() * 2 + 1,
-      color: Math.random() > 0.4 ? '#ff1e42' : '#ffffff',
+      color: Math.random() > 0.4 ? '#00f0ff' : '#ffffff',
       alpha: Math.random() * 0.35 + 0.1,
     }));
 
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = '#ff1e42';
+            ctx.strokeStyle = '#00f0ff';
             ctx.globalAlpha = (1 - dist / 120) * 0.08;
             ctx.stroke();
           }
@@ -116,7 +116,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="font-bold text-emerald-400">OPEN TODAY • 9 AM – 11 PM</span>
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <MapPin className="w-3.5 h-3.5 text-[#ff1e42]" />
+          <MapPin className="w-3.5 h-3.5 text-[#00f0ff]" />
           <span className="text-white/80">HUBLI, KARNATAKA</span>
         </motion.div>
 
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-white leading-tight font-display mb-6 uppercase"
         >
           PLAY. COMPETE. <br />
-          <span className="bg-gradient-to-r from-white via-red-100 to-[#ff1e42] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,30,66,0.3)]">
+          <span className="bg-gradient-to-r from-white via-cyan-200 to-[#00f0ff] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(0,240,255,0.3)]">
             DOMINATE.
           </span>
         </motion.h1>
@@ -155,7 +155,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               audioService.playClickSound();
               onOpenBooking();
             }}
-            className="btn-red w-full sm:w-auto px-9 py-4 text-sm font-mono tracking-wider uppercase flex items-center justify-center gap-3 shadow-xl"
+            className="btn-blue w-full sm:w-auto px-9 py-4 text-sm font-mono tracking-wider uppercase flex items-center justify-center gap-3 shadow-xl"
           >
             <Calendar className="w-5 h-5" />
             <span>BOOK A SESSION</span>
@@ -166,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             onClick={() => audioService.playHoverSound()}
             className="btn-glass w-full sm:w-auto px-9 py-4 rounded-full text-sm font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-2.5"
           >
-            <Gamepad2 className="w-4 h-4 text-[#ff1e42]" />
+            <Gamepad2 className="w-4 h-4 text-[#00f0ff]" />
             <span>EXPLORE GAMES</span>
           </a>
         </motion.div>
@@ -174,10 +174,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         {/* Scroll Indicator */}
         <a
           href="#live-status"
-          className="flex flex-col items-center gap-2 text-white/40 hover:text-[#ff1e42] transition-colors group"
+          className="flex flex-col items-center gap-2 text-white/40 hover:text-[#00f0ff] transition-colors group"
         >
           <span className="text-[10px] font-mono tracking-widest uppercase">SCROLL TO DISCOVER</span>
-          <ChevronDown className="w-5 h-5 animate-bounce text-[#ff1e42]" />
+          <ChevronDown className="w-5 h-5 animate-bounce text-[#00f0ff]" />
         </a>
       </div>
     </section>

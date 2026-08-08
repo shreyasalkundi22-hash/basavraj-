@@ -27,7 +27,7 @@ export const LiveStationStatus: React.FC<LiveStationStatusProps> = ({ onSelectSt
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-3">
+            <div className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-400 mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               <span>REAL-TIME ARENA TELEMETRY</span>
             </div>
@@ -63,7 +63,7 @@ export const LiveStationStatus: React.FC<LiveStationStatusProps> = ({ onSelectSt
                 {/* Header Row */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-mono font-extrabold text-white tracking-wider flex items-center gap-2">
-                    <Gamepad2 className="w-4 h-4 text-[#ff1e42]" />
+                    <Gamepad2 className="w-4 h-4 text-[#00f0ff]" />
                     {station.name}
                   </span>
 

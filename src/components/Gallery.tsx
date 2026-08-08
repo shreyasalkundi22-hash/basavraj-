@@ -111,7 +111,7 @@ export const Gallery: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-red-500/30 text-xs font-mono text-red-400 mb-4"
+            className="inline-flex items-center gap-2 glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-4"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>ARENA VISUAL SHOWCASE</span>
@@ -123,7 +123,7 @@ export const Gallery: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight mb-4"
           >
-            GAMING <span className="bg-gradient-to-r from-white to-[#ff1e42] bg-clip-text text-transparent">GALLERY</span>
+            GAMING <span className="bg-gradient-to-r from-white via-cyan-100 to-[#00f0ff] bg-clip-text text-transparent">GALLERY</span>
           </motion.h2>
 
           <motion.p
@@ -156,7 +156,7 @@ export const Gallery: React.FC = () => {
               }}
               className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all border ${
                 selectedFilter === tab.id
-                  ? 'bg-[#ff1e42] border-[#ff1e42] text-white shadow-lg'
+                  ? 'bg-[#00f0ff] border-[#00f0ff] text-[#090909] shadow-lg'
                   : 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -194,7 +194,7 @@ export const Gallery: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-[#090909]/40 to-transparent opacity-85 group-hover:opacity-65 transition-opacity" />
 
                 {/* Top Badge */}
-                <span className="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full text-[10px] font-mono text-[#ff1e42] border border-[#ff1e42]/30 shadow-md font-bold">
+                <span className="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full text-[10px] font-mono text-[#00f0ff] border border-[#00f0ff]/30 shadow-md font-bold">
                   {item.resolution}
                 </span>
 
@@ -209,7 +209,7 @@ export const Gallery: React.FC = () => {
                         {item.description}
                       </p>
                     </div>
-                    <div className="p-2 rounded-xl bg-[#ff1e42]/20 text-[#ff1e42] border border-[#ff1e42]/40 shrink-0 ml-3">
+                    <div className="p-2 rounded-xl bg-[#00f0ff]/20 text-[#00f0ff] border border-[#00f0ff]/40 shrink-0 ml-3">
                       <Maximize2 className="w-4 h-4" />
                     </div>
                   </div>
@@ -222,7 +222,7 @@ export const Gallery: React.FC = () => {
         {/* Bottom Location Banner */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 glass-panel px-5 py-2 rounded-full border border-white/10 text-xs font-mono text-white/70">
-            <MapPin className="w-3.5 h-3.5 text-[#ff1e42]" />
+            <MapPin className="w-3.5 h-3.5 text-[#00f0ff]" />
             <span>Visit Basavraj Gaming Arena in Hubli to experience our lounge in person</span>
           </div>
         </div>
@@ -250,7 +250,7 @@ export const Gallery: React.FC = () => {
               {/* Close Button */}
               <button
                 onClick={() => setActiveItemIndex(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-[#090909]/80 border border-white/20 text-white hover:text-[#ff1e42] transition-colors"
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-[#090909]/80 border border-white/20 text-white hover:text-[#00f0ff] transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -266,13 +266,13 @@ export const Gallery: React.FC = () => {
                 {/* Lightbox Navigation Arrows */}
                 <button
                   onClick={handlePrevLightbox}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#090909]/80 border border-white/20 text-white hover:text-[#ff1e42] transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#090909]/80 border border-white/20 text-white hover:text-[#00f0ff] transition-colors"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={handleNextLightbox}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#090909]/80 border border-white/20 text-white hover:text-[#ff1e42] transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#090909]/80 border border-white/20 text-white hover:text-[#00f0ff] transition-colors"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
@@ -286,7 +286,7 @@ export const Gallery: React.FC = () => {
               {/* Bottom Metadata Bar */}
               <div className="p-6 glass-panel border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <span className="text-xs font-mono text-[#ff1e42] uppercase tracking-wider font-bold">
+                  <span className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider font-bold">
                     {activeItem.resolution}
                   </span>
                   <h3 className="text-xl font-bold text-white font-display">
